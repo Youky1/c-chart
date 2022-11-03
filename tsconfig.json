@@ -1,0 +1,9 @@
+{
+  "strict": true,
+  "compilerOptions": {
+    "outDir": "./lib",
+    "typeRoots": ["./types"],
+    "lib": ["es2015", "DOM"]
+  },
+  "exclude": ["node_modules", "test/**"]
+}
