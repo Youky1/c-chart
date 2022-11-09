@@ -1,4 +1,6 @@
-import { drawLine } from "./util";
+import { Graph } from "../../@types";
+import { drawLine } from "./line";
+
 export const drawAxisVertical = (
   graph: Graph,
   width: number,
@@ -27,7 +29,7 @@ export const drawAxisHorizontal = (
   const right = width - 1;
   // 原点、坐标轴终点箭头
   graph[0][0] = "+";
-  graph[0][bottom] = "↓";
+  graph[bottom][0] = "↓";
   graph[0][right] = "→";
 
   // 横轴

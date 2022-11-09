@@ -1,8 +1,4 @@
-export const initArr = (width: number, height: number) => {
-  return Array(height)
-    .fill("")
-    .map(() => Array(width).fill(" "));
-};
+import { Graph } from "../../@types";
 
 // 直线填充元素
 export const drawLine = (
@@ -16,7 +12,11 @@ export const drawLine = (
     const from = Math.min(start[1], end[1]);
     const to = Math.max(start[1], end[1]);
     for (let i = from; i <= to; i++) {
-      graph[start[0]][i] = content;
+      try {
+        graph[start[0]][i] = content;
+      } catch (e) {
+        console.log(start[0], i);
+      }
     }
   } else if (start[1] === end[1]) {
     // 垂直
@@ -28,9 +28,4 @@ export const drawLine = (
   } else {
     throw new Error("Invalid data");
   }
-};
-
-export const draw = (graph: Graph) => {
-  const res = graph.map((item) => item.join("")).join("\n");
-  console.log(`\n${res}\n`);
 };

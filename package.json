@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A library to draw simple chart in command line",
   "main": "lib/index.js",
-  "typings": "types/index.d.ts",
   "scripts": {
     "build": "tsc && mocha",
     "publish": "npm version patch && npm publish"
