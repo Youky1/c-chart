@@ -13,8 +13,8 @@ export const graph2Str = (graph: Graph) => {
   return res;
 };
 
-// 数据data缩放到整数区间scale
-export const normalize = (scale: number[], data: number[]) => {
+// 数据缩放格式化
+export const valueScale = (scale: number[], data: number[]) => {
   const [start, end] = scale;
   const min = Math.min(...data);
   const max = Math.max(...data);
@@ -22,4 +22,12 @@ export const normalize = (scale: number[], data: number[]) => {
   return data.map((item) =>
     Math.round(start + (end - start) * ((item - min) / range))
   );
+};
+
+// 坐标缩放格式化
+export const coordinateScale = (scale: number[], data: number[]) => {
+  const [start, end] = scale;
+  const range = end - start;
+  const gap = Math.floor(range / (data.length + 1));
+  return data.map((item, index) => start + gap * (index + 1));
 };

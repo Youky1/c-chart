@@ -1,5 +1,5 @@
 import { drawAxisVertical, drawAxisHorizontal } from "../utils/axis";
-import { initArr, normalize } from "../utils/data";
+import { initArr, coordinateScale, valueScale } from "../utils/data";
 import { Graph, Options } from "../../@types";
 import { VERTICAL, UNDERSCORE, POINT } from "../const";
 import { drawLine } from "../utils/line";
@@ -22,12 +22,12 @@ const drawPillarVertical = (graph: Graph, center: number, len: number) => {
 };
 
 /**
- * 绘制柱状图，默认横向
+ * 绘制柱状图，默认纵向
  */
 const drawBar = (option: Options) => {
   let {
     size: { width = 40, height = 10 } = {},
-    direction = "x",
+    direction = "y",
     data
   } = option;
 
@@ -52,10 +52,10 @@ const drawBar = (option: Options) => {
     drawAxisHorizontal(graph, width, height);
 
     // 柱状图的值格式化
-    const normalized = normalize([1, width - 2], data);
+    const normalized = valueScale([1, width - 2], data);
     // 坐标在纵轴上格式化
-    const coordinate = normalize(
-      [2, height - 2],
+    const coordinate = coordinateScale(
+      [1, height - 1],
       data.map((item, index) => index + 1)
     );
     coordinate.forEach((center, index) => {
@@ -63,10 +63,10 @@ const drawBar = (option: Options) => {
     });
   } else {
     drawAxisVertical(graph, width, height);
-
-    const normalized = normalize([1, height - 2], data);
-    const coordinate = normalize(
-      [2, width - 3],
+    ``;
+    const normalized = valueScale([1, height - 2], data);
+    const coordinate = coordinateScale(
+      [1, width - 1],
       data.map((item, index) => index + 1)
     );
     coordinate.forEach((center, index) => {
