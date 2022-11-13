@@ -1,9 +1,9 @@
 import drawBar from "./chart/bar";
 import drawScatter from "./chart/scatter";
-import { Options } from "../@types";
+import { GraphOptions } from "../@types";
 import { graph2Str } from "./utils/data";
 
-const generate = (options: Options) => {
+const generate = (options: GraphOptions) => {
   switch (options.type) {
     case "bar":
       return graph2Str(drawBar(options));
@@ -14,7 +14,7 @@ const generate = (options: Options) => {
   }
 };
 
-const print = (options: Options) => {
+const print = (options: GraphOptions) => {
   console.log(generate(options));
 };
 

@@ -1,11 +1,10 @@
-import { Options, ScatterData } from "../../@types";
+import { Options, Scatter } from "../../@types";
 import { initArr, valueScale } from "../utils/data";
 import { SCATTER } from "../const";
 import { drawAxisVertical } from "../utils/axis";
 
-const drawScatter = (option: Options) => {
-  const { size: { width = 40, height = 10 } = {} } = option;
-  const data = option.data as ScatterData;
+const drawScatter = (option: Options<Scatter>) => {
+  const { size: { width = 40, height = 10 } = {}, data } = option;
   const graph = initArr(width, height);
   drawAxisVertical(graph, width, height);
   const xData = data.map((item) => item[0]);
