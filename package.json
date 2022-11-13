@@ -4,7 +4,7 @@
   "description": "A library to draw simple chart in command line",
   "main": "lib/index.js",
   "scripts": {
-    "build": "tsc && mocha",
+    "build": "tsc",
     "publish": "npm version patch && npm publish"
   },
   "keywords": [],

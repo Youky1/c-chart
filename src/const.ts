@@ -5,3 +5,5 @@ export const HORIZONTAL = "-";
 export const UNDERSCORE = "_";
 
 export const POINT = "+";
+
+export const SCATTER = "*";

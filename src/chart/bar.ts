@@ -1,6 +1,6 @@
 import { drawAxisVertical, drawAxisHorizontal } from "../utils/axis";
 import { initArr, coordinateScale, valueScale } from "../utils/data";
-import { Graph, Options } from "../../@types";
+import { BarData, Graph, Options } from "../../@types";
 import { VERTICAL, UNDERSCORE, POINT } from "../const";
 import { drawLine } from "../utils/line";
 
@@ -25,11 +25,8 @@ const drawPillarVertical = (graph: Graph, center: number, len: number) => {
  * 绘制柱状图，默认纵向
  */
 const drawBar = (option: Options) => {
-  let {
-    size: { width = 40, height = 10 } = {},
-    direction = "y",
-    data
-  } = option;
+  let { size: { width = 40, height = 10 } = {}, direction = "y" } = option;
+  const data = option.data as BarData;
 
   // 如果传入的width和height不符合最小宽高要求，重新赋值并提示
   const minWidth = data.length * 3 + 3;
@@ -63,7 +60,6 @@ const drawBar = (option: Options) => {
     });
   } else {
     drawAxisVertical(graph, width, height);
-    ``;
     const normalized = valueScale([1, height - 2], data);
     const coordinate = coordinateScale(
       [1, width - 1],

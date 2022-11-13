@@ -1,8 +1,11 @@
-export type ChartType = "bar"; // 支持的图的类型
+type ChartType = "bar" | "scatter"; // 支持的图的类型
+
+export type BarData = number[];
+export type ScatterData = Array<[number, number]>;
 
 export interface Options {
   type: ChartType;
-  data: number[];
+  data: BarData | ScatterData;
   direction?: "x" | "y"; // 柱状图的方向，默认横向
   size?: {
     width?: number;
