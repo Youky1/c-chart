@@ -1,13 +1,25 @@
 {
   "name": "c-chart",
   "version": "1.0.0",
-  "description": "A library to draw simple chart in command line",
+  "description": "A library to draw chart in command line",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
-    "publish": "npm version patch && npm publish"
+    "publish": "tsc && npm version patch && npm publish"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Youky1/c-chart.git"
+  },
+  "keywords": [
+    "chart",
+    "command line",
+    "cmd"
+  ],
   "author": "youky",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Youky1/c-chart/issues"
+  },
+  "homepage": "https://github.com/Youky1/c-chart#readme"
 }
