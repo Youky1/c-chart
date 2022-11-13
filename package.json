@@ -1,6 +1,6 @@
 {
   "name": "c-chart",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A library to draw chart in command line",
   "main": "lib/index.js",
   "scripts": {
